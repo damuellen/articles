@@ -250,12 +250,11 @@ The result is now an array with the pairwise sums of each element, expressed as 
 And if the operator were also overloaded to work with `Int` types, with:
 
 ```swift
-func +(left: [Int], right: [Int]) -> [Int] {
-    var sum = [Int](count: left.count, repeatedValue: 0)
-    for (i, _) in enumerate(left) {
-        sum[i] = left[i] + right[i]
+func +(lhs: [Double], rhs: [Double]) -> [Double] {
+    var sum = [Double]()
+    for pair in zip(lhs, rhs) {
+        sum.append(pair.0 + pair.1)
     }
-
     return sum
 }
 ```
